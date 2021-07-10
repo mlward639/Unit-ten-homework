@@ -49,6 +49,11 @@ const questions = [
     //intern includes otherName, employeeID, email, school
 ];
 
+// function to write to html file
+function writeToFile(fileName, res) {
+    fs.writeFile(fileName, res, (err) => {err ? console.error(err) : console.log('logged')})
+}
+
 //function to initiate app
 function init() {
     inquirer
