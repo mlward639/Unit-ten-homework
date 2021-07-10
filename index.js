@@ -48,3 +48,14 @@ const questions = [
     },
     //intern includes otherName, employeeID, email, school
 ];
+
+//function to initiate app
+function init() {
+    inquirer
+      .prompt(questions)
+      .then((res) => writeToFile('dist/team.html', createHTML(res))) 
+      }
+  
+      
+  // Function call to initialize app
+  init();
