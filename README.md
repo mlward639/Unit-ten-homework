@@ -35,6 +35,8 @@ Additional features:
 Jest to run unit tests
 Inquirer to collect input from the user
 
+libraries: bootstrap, font awesome
+
 ## Contribution Guidelines
 Utilize The Contributor Covenant (https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md) as reference for appropriate contribution guidelines.
 
