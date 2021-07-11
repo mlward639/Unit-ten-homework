@@ -1,6 +1,12 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const jest = require('jest');
+const util = require('util');
+const pageTemplate = require('./src/page-template.js');
+
+const writeFileAsync = util.promisify(fs.writeFile);
+//const test='testtt'
+//pageTemplate.checkConnected(test)
 
 const managerQuestions = [
     
@@ -39,50 +45,6 @@ const managerQuestions = [
     },
   ]
 
-//function to ask manager questions then
-function askManagerQuestions() {
-  inquirer
-    .prompt(managerQuestions)
-    .then((res) => {
-        //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
-        console.log('res.menu', res.menu)
-        menuChoices(res.menu);
-    })
-};
-
-askManagerQuestions();
-
-function menuChoices(res) {
-    if (res === 'engineer') {
-        console.log('chose engineer')
-        askEngineerQuestions();
-    } else if (res === 'intern') {
-      console.log('chose intern')
-        askInternQuestions();
-    } else if (res === 'team is complete') {
-      //function to generate HTML
-      return console.log('Team is complete. Generating HTML.');
-    }
-}
-
-function askEngineerQuestions(){
-  inquirer
-    .prompt(engineerQuestions)
-    .then((res) => {
-      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
-      menuChoices(res.menu);
-  })}
-
-function askInternQuestions(){
-  inquirer
-    .prompt(internQuestions)
-    .then((res) => {
-      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
-      menuChoices(res.menu);
-  })}
-
-
-     
 //engineer includes name, employeeID, email, gitHubUsername. then go to menu.
 const engineerQuestions = [
     {
@@ -143,13 +105,68 @@ const internQuestions = [
     },
 ]
 
+//function to ask manager questions then
+function askManagerQuestions() {
+  inquirer
+    .prompt(managerQuestions)
+    .then((res) => {
+        //const filename = `teamFile.html`; //how to designate which folder this goes to?? want it to go in the output folder
+        //console.log(`name: ${res.managerName}, ID: ${res.managerEmployeeID}, Email: ${res.managerEmail}, Office number: ${res.managerOfficeNumber}`)
+        //console.log('res', res);
+        const initialHTML = pageTemplate.createInitialHTML(res);
+        //console.log("TEST", pageTemplate.createInitialHTML(res));
+        writeFileAsync('teamFile.html', initialHTML); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+        //console.log('res.menu', res.menu)
+        menuChoices(res.menu);
+    })
+    .catch((err) => err ? console.error(err) : console.log('logged'))
+};
 
 
-// function to write to html file
+ /*   // function to write to html file
 function writeToFile(fileName, res) {
-    fs.writeFile(fileName, res, (err) => {err ? console.error(err) : console.log('logged')})
+  fs.writeFile(fileName, res, (err) => {err ? console.error(err) : console.log('logged')})
+} */
+
+
+//initiate prompts
+askManagerQuestions();
+
+//path to follow based on user input (questions for engineer, intern, or done adding)
+function menuChoices(res) {
+    if (res === 'engineer') {
+        console.log('chose engineer')
+        askEngineerQuestions();
+    } else if (res === 'intern') {
+        console.log('chose intern')
+        askInternQuestions();
+    } else if (res === 'team is complete') {
+        
+        //function to generate HTML
+        return console.log('Team is complete. Generating HTML.');
+    }
 }
 
+//if user selects to add an engineer, run this function to run through the engineer prompts and _______
+function askEngineerQuestions(){
+  inquirer
+    .prompt(engineerQuestions)
+    .then((res) => {
+      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+      menuChoices(res.menu);
+  })}
+
+//if user selects to add an intern, run this function to run through the intern prompts and _______
+function askInternQuestions(){
+  inquirer
+    .prompt(internQuestions)
+    .then((res) => {
+      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+      menuChoices(res.menu);
+  })}
+
+
+//writeToFile("README.md", res)
 //function to initiate app
 /* function init() {
     inquirer
