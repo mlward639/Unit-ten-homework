@@ -141,8 +141,8 @@ function menuChoices(res) {
         console.log('chose intern')
         askInternQuestions();
     } else if (res === 'team is complete') {
-        
-        //function to generate HTML
+        const endHTML = pageTemplate.createEndHTML();
+        fs.appendFile('teamFile.html', endHTML, (err) => err ? console.err(err) : console.log('logged'));
         return console.log('Team is complete. Generating HTML.');
     }
 }
