@@ -35,8 +35,22 @@ const createInitialHTML = (answer) =>
                     <li class="list-group-item">Office number: ${answer.managerOfficeNumber}</li>
                 </ul>
             </div>
-        </div> `
+        </div>\n `
 
+const createEngineerCardHTML = (answer) =>       
+        `<!-- Engineer Card-->
+        <div class="card engineer-card" style="width: 18rem;">
+        <div class="card-header">
+            <h2 class="card-title">${answer.engineerName}</h2>
+            <h3 class="card-text"><i class="fas fa-glasses"></i>  Engineer </h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Employee ID: ${answer.engineerEmployeeID}</li>
+                <li class="list-group-item">Email: ${answer.engineerEmail}</li>
+                <li class="list-group-item">GitHub Username: ${answer.gitHubUsername}</li>
+            </ul>
+        </div>\n`
 
 
 
@@ -44,6 +58,6 @@ const createInitialHTML = (answer) =>
 module.exports = {
     checkConnected,
     createInitialHTML,
-    //renderLicenseLink,
+    createEngineerCardHTML,
   };
   

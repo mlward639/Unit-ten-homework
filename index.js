@@ -153,8 +153,11 @@ function askEngineerQuestions(){
     .prompt(engineerQuestions)
     .then((res) => {
       //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+      const engineerCardHTML = pageTemplate.createEngineerCardHTML(res);
+      fs.appendFile('teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log('logged!'))
       menuChoices(res.menu);
-  })}
+    })
+}
 
 //if user selects to add an intern, run this function to run through the intern prompts and _______
 function askInternQuestions(){
