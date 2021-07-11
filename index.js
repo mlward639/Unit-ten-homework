@@ -8,15 +8,13 @@ const writeFileAsync = util.promisify(fs.writeFile);
 //const test='testtt'
 //pageTemplate.checkConnected(test)
 
+//Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
+
+
+
 const managerQuestions = [
     
     //team manager (teamManagerName, employeeID, email, officeNumber), then go to menu  
-    {
-      type: 'confirm', 
-      message: 'Do you want to build your team?',
-      name: 'start',
-      //add if no, end 
-    },
     {
       type: 'input',
       message: "What is your team manager's name?",
@@ -115,7 +113,7 @@ function askManagerQuestions() {
         //console.log('res', res);
         const initialHTML = pageTemplate.createInitialHTML(res);
         //console.log("TEST", pageTemplate.createInitialHTML(res));
-        writeFileAsync('teamFile.html', initialHTML); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+        writeFileAsync('./output/teamFile.html', initialHTML); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
         //console.log('res.menu', res.menu)
         menuChoices(res.menu);
     })
@@ -130,6 +128,7 @@ function writeToFile(fileName, res) {
 
 
 //initiate prompts
+console.log('Please build your team');
 askManagerQuestions();
 
 //path to follow based on user input (questions for engineer, intern, or done adding)
@@ -141,8 +140,7 @@ function menuChoices(res) {
         console.log('chose intern')
         askInternQuestions();
     } else if (res === 'team is complete') {
-        const endHTML = pageTemplate.createEndHTML();
-        fs.appendFile('teamFile.html', endHTML, (err) => err ? console.err(err) : console.log('logged'));
+        appendEndHTML();
         return console.log('Team is complete. Generating HTML.');
     }
 }
@@ -154,8 +152,8 @@ function askEngineerQuestions(){
     .then((res) => {
       //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
       const engineerCardHTML = pageTemplate.createEngineerCardHTML(res);
-      fs.appendFile('teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log(''));
-      menuChoices(res.menu);
+      fs.appendFile('./output/teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log(''));
+      menuChoices(res.menu); //this is running before the appendFile is done so the endHTML part is coming before the engineer or intern card are added. how would you do a promise with this? try await with this?
     })
 }
 
@@ -166,11 +164,15 @@ function askInternQuestions(){
     .then((res) => {
       //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
       const internCardHTML = pageTemplate.createInternCardHTML(res);
-      fs.appendFile('teamFile.html', internCardHTML, (err) => err ? console.error(err) : console.log(''));
-      menuChoices(res.menu);
+      fs.appendFile('./output/teamFile.html', internCardHTML, (err) => err ? console.error(err) : console.log(''));
+      menuChoices(res.menu); 
     })
 }
 
+function appendEndHTML() {
+    const endHTML = pageTemplate.createEndHTML();
+    fs.appendFile('./output/teamFile.html', endHTML, (err) => err ? console.err(err) : console.log('logged'))
+}
 
 //writeToFile("README.md", res)
 //function to initiate app

@@ -31,7 +31,7 @@ const createInitialHTML = (answer) =>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Employee ID: ${answer.managerEmployeeID}</li>
-                    <li class="list-group-item">Email: ${answer.managerEmail}</li>
+                    <li class="list-group-item">Email: <a href= "mailto: ${answer.managerEmail}">${answer.managerEmail}</a></li>
                     <li class="list-group-item">Office number: ${answer.managerOfficeNumber}</li>
                 </ul>
             </div>
@@ -47,8 +47,8 @@ const createEngineerCardHTML = (answer) =>
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Employee ID: ${answer.engineerEmployeeID}</li>
-                <li class="list-group-item">Email: ${answer.engineerEmail}</li>
-                <li class="list-group-item">GitHub Username: ${answer.gitHubUsername}</li>
+                <li class="list-group-item">Email: <a href="mailto: ${answer.engineerEmail}"> ${answer.engineerEmail}</a></li>
+                <li class="list-group-item">GitHub Username: <a href= "https://github.com/${answer.gitHubUsername}">${answer.gitHubUsername}</a></li>
             </ul>
         </div>\n`
 
@@ -62,7 +62,7 @@ const createInternCardHTML = (answers) =>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Employee ID: ${answers.internEmployeeID}</li>
-                    <li class="list-group-item">Email: ${answers.internEmail}</li>
+                    <li class="list-group-item">Email: <a href = "mailto: ${answers.internEmail}">${answers.internEmail}</a></li>
                     <li class="list-group-item">School: ${answers.school} </li>
                 </ul>
             </div>
