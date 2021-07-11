@@ -25,7 +25,7 @@ const createInitialHTML = (answer) =>
         <!-- Manager Card-->
         <div class="card manager-card" style="width: 18rem;">
             <div class="card-header">
-                <h2 class="card-title">Employee Name ${answer.managerName}</h2>
+                <h2 class="card-title">${answer.managerName}</h2>
                 <h3 class="card-text"><i class="fas fa-mug-hot"></i>  Manager </h3>
             </div>
             <div class="card-body">
@@ -38,7 +38,7 @@ const createInitialHTML = (answer) =>
         </div>\n `
 
 const createEngineerCardHTML = (answer) =>       
-        `<!-- Engineer Card-->
+`       <!-- Engineer Card-->
         <div class="card engineer-card" style="width: 18rem;">
         <div class="card-header">
             <h2 class="card-title">${answer.engineerName}</h2>
@@ -52,12 +52,27 @@ const createEngineerCardHTML = (answer) =>
             </ul>
         </div>\n`
 
-
+const createInternCardHTML = (answers) =>
+`       <!-- Intern Card-->
+        <div class="card intern-card" style="width: 18rem;">
+            <div class="card-header">
+                <h2 class="card-title">${answers.internName}</h2>
+                <h3 class="card-text"><i class="fas fa-user-graduate"></i>  Intern </h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Employee ID: ${answers.internEmployeeID}</li>
+                    <li class="list-group-item">Email: ${answers.internEmail}</li>
+                    <li class="list-group-item">School: ${answers.school} </li>
+                </ul>
+            </div>
+        </div>\n`
 
 // export to use in index.js
 module.exports = {
     checkConnected,
     createInitialHTML,
     createEngineerCardHTML,
+    createInternCardHTML,
   };
   

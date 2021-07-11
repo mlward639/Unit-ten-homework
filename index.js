@@ -119,7 +119,7 @@ function askManagerQuestions() {
         //console.log('res.menu', res.menu)
         menuChoices(res.menu);
     })
-    .catch((err) => err ? console.error(err) : console.log('logged'))
+    .catch((err) => err ? console.error(err) : console.log(''))
 };
 
 
@@ -154,7 +154,7 @@ function askEngineerQuestions(){
     .then((res) => {
       //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
       const engineerCardHTML = pageTemplate.createEngineerCardHTML(res);
-      fs.appendFile('teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log('logged!'))
+      fs.appendFile('teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log(''));
       menuChoices(res.menu);
     })
 }
@@ -165,8 +165,11 @@ function askInternQuestions(){
     .prompt(internQuestions)
     .then((res) => {
       //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+      const internCardHTML = pageTemplate.createInternCardHTML(res);
+      fs.appendFile('teamFile.html', internCardHTML, (err) => err ? console.error(err) : console.log(''));
       menuChoices(res.menu);
-  })}
+    })
+}
 
 
 //writeToFile("README.md", res)
