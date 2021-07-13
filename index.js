@@ -10,10 +10,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 //Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
 
-
-
 const managerQuestions = [
-    
     //team manager (teamManagerName, employeeID, email, officeNumber), then go to menu  
     {
       type: 'input',
@@ -108,7 +105,6 @@ function askManagerQuestions() {
   inquirer
     .prompt(managerQuestions)
     .then((res) => {
-        //const filename = `teamFile.html`; //how to designate which folder this goes to?? want it to go in the output folder
         //console.log(`name: ${res.managerName}, ID: ${res.managerEmployeeID}, Email: ${res.managerEmail}, Office number: ${res.managerOfficeNumber}`)
         //console.log('res', res);
         const initialHTML = pageTemplate.createInitialHTML(res);
@@ -120,15 +116,7 @@ function askManagerQuestions() {
     .catch((err) => err ? console.error(err) : console.log(''))
 };
 
-
- /*   // function to write to html file
-function writeToFile(fileName, res) {
-  fs.writeFile(fileName, res, (err) => {err ? console.error(err) : console.log('logged')})
-} */
-
-
 //initiate prompts
-console.log('Please build your team');
 askManagerQuestions();
 
 //path to follow based on user input (questions for engineer, intern, or done adding)
@@ -145,7 +133,7 @@ function menuChoices(res) {
     }
 }
 
-//if user selects to add an engineer, run this function to run through the engineer prompts and _______
+//if user selects to add an engineer, run this function to run through the engineer prompts and create engineer card in html
 function askEngineerQuestions(){
   inquirer
     .prompt(engineerQuestions)
@@ -157,7 +145,7 @@ function askEngineerQuestions(){
     })
 }
 
-//if user selects to add an intern, run this function to run through the intern prompts and _______
+//if user selects to add an intern, run this function to run through the intern prompts and create intern card in html
 function askInternQuestions(){
   inquirer
     .prompt(internQuestions)
@@ -169,19 +157,8 @@ function askInternQuestions(){
     })
 }
 
+//if user selects they are done building their team, run this function to create the end of the html file
 function appendEndHTML() {
     const endHTML = pageTemplate.createEndHTML();
     fs.appendFile('./output/teamFile.html', endHTML, (err) => err ? console.err(err) : console.log('logged'))
 }
-
-//writeToFile("README.md", res)
-//function to initiate app
-/* function init() {
-    inquirer
-      .prompt(questions)
-      .then((res) => writeToFile('dist/team.html', createHTML(res))) 
-      }
-  
-      
-  // Function call to initialize app
-  init(); */

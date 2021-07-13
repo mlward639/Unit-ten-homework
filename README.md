@@ -34,6 +34,7 @@ Additional features:
 ## Credits
 Jest to run unit tests
 Inquirer to collect input from the user
+fs
 
 libraries: bootstrap, font awesome
 
