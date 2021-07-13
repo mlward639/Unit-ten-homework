@@ -63,6 +63,13 @@ describe('Engineer', () => {
             expect(Nancy.getEmail()).toEqual(testEmail);
         })
     })
+    describe('getGithub', () => {
+        it('can get github username from getGithub function', () => {
+            const testGithub = 'nancy123';
+            Nancy = new Engineer('Nancy', 101, 'nancy@gmail.com', testGithub);
+            expect(Nancy.getGithub()).toEqual(testGithub);
+        })
+    })
     describe('getRole', () => {
         it('can get role from getRole function', () => {
             const testRole = 'engineer';
