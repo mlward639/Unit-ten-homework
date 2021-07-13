@@ -3,34 +3,34 @@ const Engineer = require('../lib/Engineer');
 
 describe('Engineer', () => {
     describe('Initialization', () => {
-        it('can create an engineer', () => {
+        it('can generate an engineer', () => {
             const Nancy = new Engineer();
             expect(typeof(Nancy)).toEqual('object');
         })
     })
     describe('Name', () => {
-        it('can create engineer name', () => {
+        it('can generate engineer name', () => {
             const testName = 'Nancy';
             Nancy = new Engineer(testName);
             expect(Nancy.name).toEqual(testName);
         })
     })
     describe('ID', () => {
-        it('can create ID', () => {
+        it('can generate ID', () => {
             const testId = 101;
             Nancy = new Engineer("Nancy", testId);
             expect(Nancy.id).toEqual(testId);
         })
     })
     describe('Email', () => {
-        it('can create email', () => {
+        it('can generate email', () => {
             const testEmail = 'nancy@gmail.com';
             Nancy = new Engineer("Nancy", 101, testEmail);
             expect(Nancy.email).toEqual(testEmail);
         })
     })
     describe('GitHub', () => {
-        it('can create github username', () => {
+        it('can generate github username', () => {
             const testGithub = 'nancy123';
             Nancy = new Engineer("Nancy", 101, 'nancy@gmail.com', testGithub);
             expect(Nancy.github).toEqual(testGithub);
