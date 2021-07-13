@@ -9,13 +9,15 @@ main {
     display: flex;
     padding: 25px;
     border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card {
     border: 1px black solid;
     box-shadow: 5px 10px rgba(141, 141, 141, 0.555);
     margin: 15px;
-    display: inline-flex;
+    min-width: 20%;
 }
 .card-header {
     background-color: rgb(64, 193, 216);
