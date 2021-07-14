@@ -48,7 +48,7 @@ const createEngineerCardHTML = (answer) =>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Employee ID: ${answer.engineerEmployeeID}</li>
                     <li class="list-group-item">Email: <a href="mailto: ${answer.engineerEmail}"> ${answer.engineerEmail}</a></li>
-                    <li class="list-group-item">GitHub Username: <a href= "https://github.com/${answer.gitHubUsername}">${answer.gitHubUsername}</a></li>
+                    <li class="list-group-item">GitHub Username: <a href= "https://github.com/${answer.gitHubUsername}" target="_blank">${answer.gitHubUsername}</a></li>
                 </ul>
             </div>
         </div>\n`

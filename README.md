@@ -15,7 +15,7 @@ This is a Node.js command-line application. It utilizes user input about a team 
  - [Questions](#questions)
 
 ## Installation
-use package.json to download dependencies???
+Use package.json to download dependencies (using npm install).
 
 ## Usage
 In your terminal, invoke the application by typing the command 
@@ -25,24 +25,27 @@ In your terminal, invoke the application by typing the command
 When prompted, enter appropriate responses regrading employee information.
 Additional features: 
 * On clicking the email address in the HTML, the user's default email program opens and populates the email field with the email address entered.
-* On clicking the GitHub username, the GitHub profile opens in a ***NEW*** tab.
+* On clicking the GitHub username, the GitHub profile opens in a new tab.
 * On entering the team manager's name, employee ID, email address, and office number, the user can select from a menu the option to add an engineer or intern to the team.
     * If engineer option is chosen, user is prompted to enter employee information (name, ID, email, GitHub username) before returning to the menu.
     * If intern is selected, user is prompted to enter employee information (name, ID, email, school) before returning to the menu. 
 * Once user is done creating a team, they can exit the application and view the generated HTML.
 
 ## Credits
-Jest to run unit tests
-Inquirer to collect input from the user
-fs
-
-libraries: bootstrap, font awesome
+Jest to run unit tests.
+Inquirer to collect input from the user.
+Util for asynchronous function.
+fs to access file system.
+Bootstrap for CSS framework for cards.
+Font awesome for icons.
 
 ## Contribution Guidelines
 Utilize The Contributor Covenant (https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md) as reference for appropriate contribution guidelines.
 
 ## Test Instructions
+Open file in Integrated Terminal in Visual Studio Code. Run the following: 
 
+    npm run test
 
 ## License
 License type: MIT
@@ -59,21 +62,18 @@ Source for licensing information: <a href="https://opensource.org/licenses/MIT">
 
 ## Screenshots
 
-Screenshot of :
-<img src='' alt = ''>
+Screenshot of user-input:
+<img src='images\screenshot-user-input.png' alt = 'screenshot of user input in terminal'>
 
-Screenshot of :
-<img src='' alt = ''>
-
-
-Screenshot of :
-<img src='' alt = ''>
+Screenshot of generated HTML:
+<img src='images\screenshot-generated-HTML.png' alt = 'screenshot of generated HTML'>
 
 
-Screenshot of :
-<img src='' alt = ''>
+Screenshot of generated HTML webpage:
+<img src='images\screenshot-user-input.png' alt = 'screenshot of generated HTML opened in live server'>
+
 
 ## URLs
 <a href="https://github.com/mlward639/Unit-ten-homework">Link to GitHub Repository</a>
 
-<a href="#">Link to walkthrough video</a>
+<a href="https://drive.google.com/file/d/1yUXrg5UZXcxmFripa_mQy4WgwhWL2GUf/view">Link to walkthrough video</a>
