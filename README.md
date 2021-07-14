@@ -76,4 +76,4 @@ Screenshot of generated HTML webpage:
 ## URLs
 <a href="https://github.com/mlward639/Unit-ten-homework">Link to GitHub Repository</a>
 
-<a href="https://drive.google.com/file/d/1yUXrg5UZXcxmFripa_mQy4WgwhWL2GUf/view">Link to walkthrough video</a>
+<a href="https://drive.google.com/file/d/19SD1lJNA8_Y0oycaryXBdkn6WziutpBQ/view">Link to walkthrough video</a>
