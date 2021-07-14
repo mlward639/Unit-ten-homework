@@ -8,8 +8,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
 //const test='testtt'
 //pageTemplate.checkConnected(test)
 
-//Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
-
 const managerQuestions = [
     //team manager (teamManagerName, employeeID, email, officeNumber), then go to menu  
     {
@@ -70,7 +68,7 @@ const engineerQuestions = [
     },
   ];
 
-//intern includes name, employeeID, email, school
+//intern includes name, employeeID, email, school. then go to menu.
 const internQuestions = [
     {
       type: 'input',
@@ -100,7 +98,7 @@ const internQuestions = [
     },
 ]
 
-//function to ask manager questions then
+//function to ask manager questions 
 function askManagerQuestions() {
   inquirer
     .prompt(managerQuestions)
@@ -109,7 +107,7 @@ function askManagerQuestions() {
         //console.log('res', res);
         const initialHTML = pageTemplate.createInitialHTML(res);
         //console.log("TEST", pageTemplate.createInitialHTML(res));
-        writeFileAsync('./output/teamFile.html', initialHTML); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
+        writeFileAsync('./output/teamFile.html', initialHTML); 
         //console.log('res.menu', res.menu)
         menuChoices(res.menu);
     })
@@ -138,10 +136,9 @@ function askEngineerQuestions(){
   inquirer
     .prompt(engineerQuestions)
     .then((res) => {
-      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
       const engineerCardHTML = pageTemplate.createEngineerCardHTML(res);
       fs.appendFile('./output/teamFile.html', engineerCardHTML, (err) => err ? console.error(err) : console.log(''));
-      menuChoices(res.menu); //this is running before the appendFile is done so the endHTML part is coming before the engineer or intern card are added. how would you do a promise with this? try await with this?
+      menuChoices(res.menu); 
     })
 }
 
@@ -150,7 +147,6 @@ function askInternQuestions(){
   inquirer
     .prompt(internQuestions)
     .then((res) => {
-      //writeToFile('dist/team.html', createHTML(res)); //may need to change to make work for creating manager class separate then add manager class to HTML later or something
       const internCardHTML = pageTemplate.createInternCardHTML(res);
       fs.appendFile('./output/teamFile.html', internCardHTML, (err) => err ? console.error(err) : console.log(''));
       menuChoices(res.menu); 

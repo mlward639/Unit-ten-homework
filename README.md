@@ -12,7 +12,6 @@ This is a Node.js command-line application. It utilizes user input about a team 
  - [Contribution Guidelines](#contribution-guidelines)
  - [Test Instructions](#test-instructions)
  - [License](#license)
- - [Questions](#questions)
 
 ## Installation
 Use package.json to download dependencies (using npm install).
@@ -22,14 +21,18 @@ In your terminal, invoke the application by typing the command
     
     node index.js
 
-When prompted, enter appropriate responses regrading employee information.
-Additional features: 
+
+When prompted in the terminal, enter appropriate responses regarding employee information.
+
+On entering the team manager's name, employee ID, email address, and office number, the user can select from a menu the option to add an engineer or intern to the team.
+* If engineer option is chosen, user is prompted to enter employee information (name, ID, email, GitHub username) before returning to the menu.
+* If intern is selected, user is prompted to enter employee information (name, ID, email, school) before returning to the menu. 
+* Once user is done creating a team, they select they are done creating their team and then exit the application and view the generated HTML.
+
+Additional features for generated HTML opened in browser: 
 * On clicking the email address in the HTML, the user's default email program opens and populates the email field with the email address entered.
 * On clicking the GitHub username, the GitHub profile opens in a new tab.
-* On entering the team manager's name, employee ID, email address, and office number, the user can select from a menu the option to add an engineer or intern to the team.
-    * If engineer option is chosen, user is prompted to enter employee information (name, ID, email, GitHub username) before returning to the menu.
-    * If intern is selected, user is prompted to enter employee information (name, ID, email, school) before returning to the menu. 
-* Once user is done creating a team, they can exit the application and view the generated HTML.
+
 
 ## Credits
 Jest to run unit tests.
@@ -70,7 +73,7 @@ Screenshot of generated HTML:
 
 
 Screenshot of generated HTML webpage:
-<img src='images\screenshot-user-input.png' alt = 'screenshot of generated HTML opened in live server'>
+<img src='images\screenshot-generated-html-live-server.png' alt = 'screenshot of generated HTML opened in live server'>
 
 
 ## URLs
